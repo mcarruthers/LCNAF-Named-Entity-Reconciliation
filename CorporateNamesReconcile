@@ -1,0 +1,268 @@
+[
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Name using expression grel:replace(value, ' ', '%20')",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Name",
+    "expression": "grel:replace(value, ' ', '%20')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Name using expression grel:replace(value, '&', '%26')",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Name",
+    "expression": "grel:replace(value, '&', '%26')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition-by-fetching-urls",
+    "description": "Create column Fetch at index 4 by fetching URLs based on column Name using expression grel:'http://viaf.org/viaf/search/viaf?query=local.corporateNames+%3D+%22' + value + '%22+and+local.sources+%3D+%22lc%22&sortKeys=holdingscount&httpAccept=application/rdf+xml'",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "newColumnName": "Fetch",
+    "columnInsertIndex": 4,
+    "baseColumnName": "Name",
+    "urlExpression": "grel:'http://viaf.org/viaf/search/viaf?query=local.corporateNames+%3D+%22' + value + '%22+and+local.sources+%3D+%22lc%22&sortKeys=holdingscount&httpAccept=application/rdf+xml'",
+    "onError": "set-to-blank",
+    "delay": 300
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column LCCN at index 5 based on column Fetch using expression grel:value.parseHtml().select('ns2|source').toString()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "newColumnName": "LCCN",
+    "columnInsertIndex": 5,
+    "baseColumnName": "Fetch",
+    "expression": "grel:value.parseHtml().select('ns2|source').toString()",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LCCN using expression grel:substring(value, indexOf(value, 'LC'))",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "LCCN",
+    "expression": "grel:substring(value, indexOf(value, 'LC'))",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LCCN using expression grel:substring(value, 0, indexOf(value, '<'))",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "LCCN",
+    "expression": "grel:substring(value, 0, indexOf(value, '<'))",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LCCN using expression value.replace(/\\s+/,' ')",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "LCCN",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LCCN using expression value.trim()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "LCCN",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LCCN using expression grel:substring(value, 3)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "LCCN",
+    "expression": "grel:substring(value, 3)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LCCN using expression grel:replace(value, ' ', '')",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "LCCN",
+    "expression": "grel:replace(value, ' ', '')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition-by-fetching-urls",
+    "description": "Create column LC Heading at index 6 by fetching URLs based on column LCCN using expression grel:'http://viaf.org/processed/LC|' + value + '?httpAccept=text/xml'",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "newColumnName": "LC Heading",
+    "columnInsertIndex": 6,
+    "baseColumnName": "LCCN",
+    "urlExpression": "grel:'http://viaf.org/processed/LC|' + value + '?httpAccept=text/xml'",
+    "onError": "set-to-blank",
+    "delay": 300
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LC Heading using expression grel:value.parseHtml().select('mx|datafield[tag~=110]')[0].htmlText()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "LC Heading",
+    "expression": "grel:value.parseHtml().select('mx|datafield[tag~=110]')[0].htmlText()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LC Heading using expression value.replace(/\\s+/,' ')",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "LC Heading",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LC Heading using expression value.trim()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "LC Heading",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LCCN using expression grel:\"http://id.loc.gov/authorities/names/\" + value",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "LCCN",
+          "omitBlank": false,
+          "columnName": "LCCN",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "LCCN",
+    "expression": "grel:\"http://id.loc.gov/authorities/names/\" + value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Fetch",
+    "columnName": "Fetch"
+  },
+  {
+    "op": "core/column-move",
+    "description": "Move column LCCN to position 5",
+    "columnName": "LCCN",
+    "index": 5
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column LC Heading to LCNAF Heading",
+    "oldColumnName": "LC Heading",
+    "newColumnName": "LCNAF Heading"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column LCCN to LC Record Link",
+    "oldColumnName": "LCCN",
+    "newColumnName": "LC Record Link"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Name using expression grel:replace(value, '%20', ' ')",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Name",
+    "expression": "grel:replace(value, '%20', ' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Name using expression grel:replace(value, '%26', '&')",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Name",
+    "expression": "grel:replace(value, '%26', '&')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  }
+]
