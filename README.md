@@ -6,7 +6,7 @@ Using Google Refine and stable, publicly available APIs, the process automatical
 Instructions:
 To use this process, please have Google Refine v.2.5-r2407 installed.  This can be downloaded here: http://openrefine.org/download.html
 
-1. Prepare a spreadsheet with the list of names you wish to reconcile in a single column.  The header for this column should be called "Name".  Separate personal names and corporate names into different spreadsheets.
+1. Prepare a spreadsheet with the list of names you wish to reconcile in a single column.  The header for this column should be called "Name".  This should be the only column in the spreadsheet.  Separate personal names and corporate names into different spreadsheets.
 2. Launch Google Refine.
 3. Click "Create Project" and upload the spreadsheet with the names to reconcile.
 4. Review the preview screen to make sure the spreadsheet is importing correctly, and click "Create Project".
