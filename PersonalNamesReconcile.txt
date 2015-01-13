@@ -1,29 +1,26 @@
 [
   {
+    "op": "core/row-reorder",
+    "description": "Reorder rows",
+    "mode": "record-based",
+    "sorting": {
+      "criteria": [
+        {
+          "reverse": false,
+          "caseSensitive": false,
+          "column": "Name",
+          "valueType": "string",
+          "blankPosition": 2,
+          "errorPosition": 1
+        }
+      ]
+    }
+  },
+  {
     "op": "core/blank-down",
     "description": "Blank down cells in column Name",
     "engineConfig": {
-      "facets": [
-        {
-          "invert": false,
-          "expression": "facetCount(value, 'value', 'Name') > 1",
-          "selectError": false,
-          "omitError": false,
-          "selectBlank": false,
-          "name": "Name",
-          "omitBlank": false,
-          "columnName": "Name",
-          "type": "list",
-          "selection": [
-            {
-              "v": {
-                "v": true,
-                "l": "true"
-              }
-            }
-          ]
-        }
-      ],
+      "facets": [],
       "mode": "row-based"
     },
     "columnName": "Name"
@@ -33,25 +30,6 @@
     "description": "Remove rows",
     "engineConfig": {
       "facets": [
-        {
-          "invert": false,
-          "expression": "facetCount(value, 'value', 'Name') > 1",
-          "selectError": false,
-          "omitError": false,
-          "selectBlank": false,
-          "name": "Name",
-          "omitBlank": false,
-          "columnName": "Name",
-          "type": "list",
-          "selection": [
-            {
-              "v": {
-                "v": true,
-                "l": "true"
-              }
-            }
-          ]
-        },
         {
           "invert": false,
           "expression": "isBlank(value)",
