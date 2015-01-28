@@ -394,4 +394,17 @@
     "repeat": false,
     "repeatCount": 10
   }
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Name using expression grel:replace(value, '%26', ' ')",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Name",
+    "expression": "grel:replace(value, '%26', ' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  }
 ]
