@@ -82,7 +82,6 @@
   {
     "op": "core/column-addition-by-fetching-urls",
     "description": "Create column Fetch at index 1 by fetching URLs based on column Name using expression grel:\"http://viaf.org/viaf/search/viaf?
-
 query=local.corporateNames+%3D+%22\" + value + \"%22+and+local.sources+%3D+%22lc%22&sortKeys=holdingscount&httpAccept=application/xml\"",
     "engineConfig": {
       "facets": [],
@@ -92,7 +91,6 @@ query=local.corporateNames+%3D+%22\" + value + \"%22+and+local.sources+%3D+%22lc
     "columnInsertIndex": 1,
     "baseColumnName": "Name",
     "urlExpression": "grel:\"http://viaf.org/viaf/search/viaf?query=local.corporateNames+%3D+%22\" + value + \"%22+and+local.sources+%3D+%22lc
-
 %22&sortKeys=holdingscount&httpAccept=application/xml\"",
     "onError": "set-to-blank",
     "delay": 300
@@ -211,7 +209,6 @@ query=local.corporateNames+%3D+%22\" + value + \"%22+and+local.sources+%3D+%22lc
   {
     "op": "core/column-addition-by-fetching-urls",
     "description": "Create column LCNAF Heading at index 3 by fetching URLs based on column LC Record Link using expression grel:\"http://viaf.org/processed/LC|\" + 
-
 value + \"?httpAccept=text/xml\"",
     "engineConfig": {
       "facets": [
