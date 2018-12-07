@@ -4,7 +4,7 @@ LCNAF-Named-Entity-Reconciliation
 Using Google Refine and stable, publicly available APIs, the process automatically searches the Virtual International Authority File (VIAF) for matches to personal and corporate names, looks for a Library of Congress source authority record in the matching VIAF cluster, and extracts the authorized heading.  The end result is a dataset, exportable from Google Refine, with the corresponding authorized LCNAF heading paired with the original name heading, along with a link to the authority record on id.loc.gov
 
 Instructions:
-To use this process, please have Google Refine v.2.5-r2407 or higher installed.  This can be downloaded here: http://openrefine.org/download.html
+To use this process, please have OpenRefine installed.  This can be downloaded here: http://openrefine.org/download.html
 
 1. Prepare a spreadsheet with the list of names you wish to reconcile in a single column.  The header for this column should be called "Name".  This should be the only column in the spreadsheet.
 2. Launch Google Refine.
